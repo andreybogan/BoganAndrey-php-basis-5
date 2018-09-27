@@ -12,8 +12,7 @@ function my_connect($localhost, $user, $password, $db) {
   $connect = @mysqli_connect($localhost, $user, $password, $db);
   // Если не удалось установить соединение выводим сообщение об ошибке.
   if (mysqli_connect_errno()) {
-    echo "Ошибка: Не удалось установить соединение с базой данных. Повторите попытку позже.";
-    exit;
+    exit("Ошибка: Не удалось установить соединение с базой данных. Повторите попытку позже.");
   }
   return $connect;
 }
@@ -32,8 +31,7 @@ function my_query($query) {
 
   // Если возникла ошибка запроса в базу данных, то выводим сообщение об ошибке.
   if (!$result = @mysqli_query($GLOBALS['_db_connect'], $query)) {
-    echo "Ошибка: Ошибка запроса в базу данных. Повторите попытку позже.";
-    exit;
+    exit("Ошибка: Ошибка запроса в базу данных. Повторите попытку позже.");
   }
   return $result;
 }
@@ -63,8 +61,7 @@ function my_string($value) {
 function my_insert_id() {
   // Получаем поледний ID.
   if (!$result = @mysqli_insert_id($GLOBALS['_db_connect'])) {
-    echo "Ошибка: Ошибка получения последнего id. Повторите попытку позже.";
-    exit;
+    exit("Ошибка: Ошибка получения последнего id. Повторите попытку позже.");
   }
   return $result;
 }
