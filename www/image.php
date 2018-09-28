@@ -11,7 +11,7 @@ include GLOBAL_DIR . "fns/fns_gallery.php";
 $result = getImageDB($_GET['id']);
 
 // Если результат получен, то увеличиваем количество просмотров на 1.
-updateCount($_GET['id'], $result['count']);
+updateCount($_GET['id']);
 
 // Подключаем html страницу с фотографией.
 include TEMPLATE_DIR . "image.php";

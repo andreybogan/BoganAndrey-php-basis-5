@@ -40,11 +40,8 @@ function getImageDB($id) {
 /**
  * Функция изменяет количество просмотров фотографии в базе данных.
  * @param int $id - ID фотографии, информацию о которой хотим получить.
- * @param int $count - Текущее количество просмотров фотографии.
  */
-function updateCount($id, $count) {
-  // Получаем новое количество просмотров.
-  ++$count;
+function updateCount($id) {
   // Обновляем количество просмотров фотографии в базе данных.
-  my_query("update images set count = '{$count}' where id_img = '{$id}'");
+  my_query("update images set count = count + 1 where id_img = '{$id}'");
 }
